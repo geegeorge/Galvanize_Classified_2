@@ -30,23 +30,22 @@ router.get('/:id', (req, res, next) => {
     });
 });
 router.post('/', (req, res, next) => {
-  // knex('classifieds')
-  //   .returning(['id', 'title', 'price', 'item_image', 'description'])
-  //   .insert({
-  //     title: req.body.title,
-  //     price: req.body.price,
-  //     item_image: req.body.item_image,
-  //     description: req.body.description
-  //   })
-  //   .then((classifieds) => {
-  //
-  //     console.log("AFTER POST INSERT");
-  //     res.json(classifieds[0]);
-  //   })
-  //   .catch((err) => {
-  //     next(err);
-  //   });
-  res.json({prop: 'yes'});
+  knex('classifieds')
+    .returning(['id', 'title', 'price', 'item_image', 'description'])
+    .insert({
+      title: req.body.title,
+      price: req.body.price,
+      item_image: req.body.item_image,
+      description: req.body.description
+    })
+    .then((classifieds) => {
+
+      console.log("AFTER POST INSERT");
+      res.json(classifieds[0]);
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.patch('/:id', (req, res, next) => {

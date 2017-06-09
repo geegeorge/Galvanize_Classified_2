@@ -1,6 +1,6 @@
 <div class="container">
   <div class="panel panel-default">
-    <form name="$ctrl.form" class="form" ng-submit="$ctrl.createAd()">
+  <form name="$ctrl.form" class="form" ng-submit="$ctrl.createAd()">
       <div class="form-group col-xs-9 col-m-6">
         <label class="control-label" for="title">Title</label>
         <input ng-model="$ctrl.form.title" type="title" class="form-control" id="title" placeholder="What's your title">
@@ -29,17 +29,26 @@
 <hr>
 
 <!-- ngrepeat -->
+
 <div ng-repeat="ad in $ctrl.ads" class="cascade">
-
+<div class="well">
+  <br>
   <h2>{{ad.title}}</h1>
+  </div>
+  <div class="well">
       <h3>${{ad.price}}</h3>
+    </div>
 <img ng-src="{{ad.item_image}}" alt="image">
+<div class="well">
 <p>{{ad.description}}</p>
-
+</div>
+<br>
 <div class="container">
   <div class="row">
+    <br>
 <button ng-click="$ctrl.showEdit = !$ctrl.showEdit" id="{{ad.id}}" class="btn btn-info">Edit Post</button>
 <button ng-click="$ctrl.deleteAd($event)" id="{{ad.id}}" class="btn btn-danger">Delete Post</button>
+<br>
 </div>
 </div>
 

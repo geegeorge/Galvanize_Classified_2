@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '/./', 'node_modules')))
 const classifieds = require('./server/routes/classifieds');
 app.use('/classifieds', classifieds);
 app.use('/jscripts', express.static(path.join(__dirname, "./client/jscripts")));
-app.use('/stylesheets', express.static(path.join(__dirname, "./client/stylesheets")));
+app.use('/stylesheets', express.static(path.join(__dirname, "./client/stylesheet")));
 app.use('/views', express.static(path.join(__dirname, "/client/views")));
 app.use('*', function(req, res) {
   res.sendFile('index.html', {

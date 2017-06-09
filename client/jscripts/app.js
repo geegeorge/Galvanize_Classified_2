@@ -24,7 +24,8 @@
     }
 
     function deleteAd() {
-      var id = gads.params.id;
+      let id = event.target.id;
+
       AdService.deleteAd(id)
         .then(function() {
           AdService.getAd()
@@ -44,7 +45,7 @@
 
       AdService.postAd(newObj)
         .then(function(data) {
-          console.log("hi");
+          // console.log("hi");
           AdService.getAd()
             .then(function(data2) {
               vm.ads = data2;
@@ -52,7 +53,7 @@
         })
     }
 
-    function editAd() {
+    function editAd(id, title, price, description, item_image) {
       const formObj = {
         id: id,
         title: title,
